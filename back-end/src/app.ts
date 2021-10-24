@@ -1,15 +1,15 @@
-const express = require( "express" );
+import axios from 'axios';
+import express, { json } from 'express';
 const app = express();
 const port = 8080;
-const axios = require('axios');
 
 const apiKey = '195be73864154e71b48f0f8ea61e89bc';
 const requestUrl = 'https://haveibeenpwned.com/api/v3/breachedaccount';
 const userAgent = 'email-breach';
 
-app.use(express.json());
+app.use(json());
 
-const getEmailBreaches = async (email) => {
+const getEmailBreaches = async (email: string) => {
     return await axios({
         method: 'get',
         url: `${ requestUrl }/${ email }`,
