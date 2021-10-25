@@ -5,6 +5,7 @@
 * [Express.js](https://expressjs.com/)
 * [Material UI](https://mui.com/)
 * [AG Grid](https://www.ag-grid.com/)
+* [HaveIBeenPwned](https://haveibeenpwned.com/)
 
 ## Getting Started
 
