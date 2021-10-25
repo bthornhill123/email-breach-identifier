@@ -8,6 +8,8 @@
 
 ## Getting Started
 
+Check out the [LIVE DEMO](https://email-breach-identifier.herokuapp.com/)
+
 To get a local copy up and running follow these simple example steps.
 
 ### Installation
