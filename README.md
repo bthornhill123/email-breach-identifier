@@ -1,3 +1,6 @@
+## Overview
+Use this application to view, sort, and filter all reported data breaches that your email address has been a part of.
+
 ### Built With
 
 * [React.js](https://reactjs.org/)
