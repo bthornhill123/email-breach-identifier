@@ -4,6 +4,7 @@ import 'ag-grid-community/dist/styles/ag-grid.css';
 import 'ag-grid-community/dist/styles/ag-theme-alpine-dark.css';
 import React, { useState } from 'react';
 import { SecurityBreach } from './models/securityBreach';
+import BasicModal from './basic-modal';
 
 function App() {
   const [breaches, setBreaches] = React.useState<SecurityBreach[]>([]);
@@ -24,7 +25,6 @@ function App() {
   const nameCellRenderer = (params: any) => {
     return `<a href="https://www.${params.data.domain}" target="_blank">${ params.data.name }</a>`;
   };
-  
 
   return (
     <Container component="main" maxWidth="md">
@@ -61,6 +61,9 @@ function App() {
         <div style={{ width: "100%", height: "100%" }}>
           <AgGridReact
             rowData={breaches}
+            frameworkComponents={{
+              descriptionCellRenderer: BasicModal,
+            }}
             defaultColDef={{
               editable: true,
               filter: 'agTextColumnFilter',
@@ -68,7 +71,7 @@ function App() {
           }}>
               <AgGridColumn field="logo"  cellRenderer={ logoCellRenderer }></AgGridColumn>
               <AgGridColumn field="name"   cellRenderer={ nameCellRenderer }></AgGridColumn>
-              <AgGridColumn field="description"></AgGridColumn>
+              <AgGridColumn field="description" cellRenderer="descriptionCellRenderer"></AgGridColumn>
               <AgGridColumn field="date" filter="agDateColumnFilter"></AgGridColumn>
           </AgGridReact>
           </div>
