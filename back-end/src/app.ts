@@ -1,5 +1,6 @@
 import axios from 'axios';
 import express, { json } from 'express';
+import path from 'path';
 import { SecurityBreach } from './models/securityBreach';
 const app = express();
 const cors = require('cors');
@@ -47,6 +48,13 @@ app.get( "/breaches", async (req, res) => {
     } else {
         res.status(400).send('No email provided.');
     }
+});
+
+
+// Serve the React app
+app.use(express.static(path.join(__dirname, 'build')));
+app.get('/*', (req, res) => {
+  res.sendFile(path.join(__dirname, 'build', 'index.html'));
 });
 
 const port = 8080;
